@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+.carrito{
+    color: white;
+}
+.carrito img{
+    height: 50px;
+    width: 50px;
+    filter: invert(100%);
+}
+
+.header{
+    width: 100%;
+    background-color: #1b3039;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 5px 10%;
+    z-index: 1050;
+    position: relative;
+}
+
+.header .logo{
+    cursor: pointer;
+}
+
+.header .logo img{
+    height: 70px;
+    width: auto;
+    transition: all 0.3s;
+}
+
+.header .logo img:hover{
+    transform: scale(1.2);
+}
+
+.header .nav-links{
+    list-style: none;
+}
+
+.header .nav-links li{
+    display: inline-block;
+    padding: 0 20px;    
+}
+#btn-salir{
+    list-style: none
+}
+.header .nav-links li:hover{
+    transform: scale(1.1);
+    background-color: rgb(96, 96, 66);
+}
+
+.header .nav-links a{
+    font-size: 700;
+    color: #eceff1;
+    text-decoration: none;    
+}
+
+.header .nav-links li a:hover{
+    color: #ffbc0e;
+}
+
+.header .btn button{
+    font-weight: 700;
+    color: #1b3039;
+    padding: 9px 25px;
+    background: #eceff1;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+.header .btn button:hover{
+    background-color: #e2f1f8;
+    color: #ffbc0e;
+    transform: scale(1.1);
+}
+
+/* estilo modal */
+.modal-register {
+    display: block;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+    animation: fadeIn 0.3s;
+    
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    animation: slideIn 0.3s;
+    background-color: #2f3542;
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+}
+
+@keyframes slideIn {
+    from {transform: translateY(-50px); opacity: 0;}
+    to {transform: translateY(0); opacity: 1;}
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #e26936;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #68a7e2;
+}
+/* inicio de sesion: */
+.login-container {
+    background-color: #2f3542;
+    padding: 40px;
+    border-radius: 8px;
+    width: 300px;
+}
+.login-h2{
+    color: white;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+.input-group input {
+    width: 100%;
+    padding: 10px 0;
+    background: none;
+    border: none;
+    border-bottom: 1px solid #747d8c;
+    color: white;
+    outline: none;
+    font-size: 16px;
+}
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #747d8c;
+    transition: 0.3s;
+    pointer-events: none;
+}
+.input-group input:focus + label,
+.input-group input:valid + label {
+    top: -20px;
+    font-size: 12px;
+    color: #ffa502;
+}
+.error-message {
+    color: #ff6b6b;
+    font-size: 14px;
+    margin-top: 5px;
+}
+.enviar-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #1e2733;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.signup-link {
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    margin-top: 20px;
+}
+.signup-link a {
+    color: #747d8c;
+    text-decoration: none;
+}
+
+.signup-link a:hover{
+    color: #68a7e2;
+    text-decoration: none;
+}
+/* RESPONSIVVE */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .carrito {
+        margin-top: 10px;
+    }
+
+    .btn {
+        margin-top: 10px;
+    }
+
+    .btn-salir {
+        list-style: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 10px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+    .nav-links li {
+        margin: 5px 0;
+    }
+
+    .btn button {
+        padding: 5px 10px;
+    }
+}

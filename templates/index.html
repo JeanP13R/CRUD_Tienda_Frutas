@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/productos.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+</head>
+<body>
+    <section>
+        <h1 class="titulo">CRUD de productos</h1>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <div class="button_slide slide_left"><a href="crear_producto">Crear un producto</a> </div>
+    
+        <div class="productos">
+            {% for producto in productos %}
+                <div class="producto">
+                    <h4 class="title-product">{{ producto.nombre|upper }}<p class="info">➕</p></h4>
+                    <p>{{ producto.descripcion }}</p>
+                    <img src="{{ producto.imagen.url }}" alt="{{ producto.nombre }}" style="width: 200px; height: 200px;object-fit: cover;">
+                    <div class="actions">
+                        <div >
+                            <a class="button_slide slide_left" id="btn-actualizar" href="{% url 'actualizar_producto' producto.idProducto %}">
+                                Actualizar
+                            </a>
+                            <form method="post" action="" class="delete-form" style="display:inline;">
+                                {% csrf_token %}
+                                <input type="hidden" name="producto_id" value="{{ producto.idProducto }}">
+                                <button type="submit" name="action" value="delete" class="button_slide slide_left btn-eliminar">Eliminar</button>
+                            </form>
+                        </div>
+                        <!-- Puedes agregar más acciones aquí -->
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/productos.js' %}" ></script>
+</body>
+</html>
+{% endblock %}

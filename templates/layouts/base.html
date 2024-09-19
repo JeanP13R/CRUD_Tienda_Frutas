@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/estilo_base.css' %}">
+    
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="" alt="">
+        </div>
+        <nav>
+           <ul class="nav-links">
+                <li><a href="{% url 'home' %}" id="inicio" aria-current="page">INICIO</a></li>
+                <li><a href="/crear">CRUD</a></li>
+                <li><a href="/crear_producto">CREAR PRODUCTOS</a></li>
+           </ul>            
+        </nav>
+        <a class="carrito" href="#"><img src="{% static 'images/cart-shopping-solid.svg' %}" alt=""></a>
+
+        {% if request.user.is_authenticated %}
+            <span style="color: aliceblue;">➡️ {{ user.username|upper }}  👈</span>
+            <li id="btn-salir"><a class="btn" href="{% url 'exit' %}"><button>Salir</button></a></li>
+        {% else %}
+            <a class="btn" href="{% url 'login' %}"><button id="openModal">INGRESAR</button></a>
+        {% endif %}
+        
+    </header>
+    
+    
+
+    <script src="{% static 'js/register.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="{% static 'js/verification.js' %}"></script>
+{% block content %}
+{% endblock %}
+</body>
+</html>

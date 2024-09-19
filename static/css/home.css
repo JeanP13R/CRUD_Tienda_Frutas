@@ -1,0 +1,109 @@
+header{
+    width: auto;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    z-index: 1050;
+}
+header img{
+    padding: 5px 0;
+    width: auto;
+    height: 250px;
+}
+
+.content-main{
+    background-color: bisque;
+    display: flex;
+    flex-direction: row row-reverse;
+}
+
+.productos{
+    padding: 25px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.producto{
+    padding: 10px;
+    border: 2px solid #000000;
+    margin-right: 5px;
+}
+
+.title-product{
+    display: flex;
+    justify-content: center;
+}
+.title-product p{
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.modal-container {
+    display: none; /* Oculto por defecto */
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro para el overlay */
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    transition: opacity 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .modal-container.show {
+    display: flex; /* Muestra el modal cuando tiene la clase 'show' */
+  }
+  
+  .modal {
+    background-color: #fff;
+    width: 600px;
+    max-width: 100%;
+    padding: 30px 50px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    z-index: 1001; /* Asegura que el modal esté sobre el fondo */
+  }
+  
+  /* responsive */
+  
+  @media (max-width: 768px) {
+    .content-main {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .filtrados {
+        margin-bottom: 20px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .productos {
+        width: 100%;
+        justify-content: center;
+        grid-template-rows: 1fr;
+        grid-template-columns: 3fr;
+    }
+
+    .producto {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .producto {
+        width: calc(100% - 20px);
+    }
+
+    .producto h4 .info {
+        display: block;
+        text-align: right;
+        cursor: pointer;
+    }
+
+    .producto .product-image {
+        width: 100%;
+    }
+}

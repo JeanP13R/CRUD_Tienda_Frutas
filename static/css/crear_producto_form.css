@@ -1,0 +1,93 @@
+body{
+    background-color: #d0b867;
+}
+
+/* Estilos para centrar el formulario */
+.formulario {
+    max-width: 500px;
+    margin: 50px auto; /* Centrando el formulario */
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.formulario div {
+    margin-bottom: 10px;
+}
+
+.formulario label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.formulario input[type="text"],
+.formulario input[type="number"],
+.formulario input[type="file"],
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+.formulario input[type="text"]:focus,
+.formulario input[type="number"]:focus,
+.formulario input[type="file"]:focus,
+.formulario select:focus,
+.formulario textarea:focus {
+    border-color: #3498DB;
+    outline: none;
+}
+
+.errorlist {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.errorlist p {
+    margin: 0;
+}
+
+.formulario button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.formulario button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos adicionales para una mejor presentación */
+.formulario div {
+    display: flex;
+    flex-direction: column;
+}
+
+.formulario button {
+    margin-top: 20px;
+}
+
+.formulario label {
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: normal;
+}
+
+.formulario input[type="file"] {
+    padding: 3px;
+}

@@ -1,0 +1,93 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crear Producto</title>
+    <link rel="stylesheet" href="{% static 'css/crear_producto_form.css' %}">
+ 
+</head>
+<body>
+<!-- o podemos usar directamente {{ form }} -->
+    <h1>Crear Nuevo Producto</h1>
+    <form method="post" enctype="multipart/form-data" class="formulario">
+        {% csrf_token %}
+        
+        <div>
+            <label for="id_nombre">Nombre:</label>
+            {{ form.nombre }}
+            {% if form.nombre.errors %}
+                <div class="errorlist">
+                    {% for error in form.nombre.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_descripcion">Descripción:</label>
+            {{ form.descripcion }}
+            {% if form.descripcion.errors %}
+                <div class="errorlist">
+                    {% for error in form.descripcion.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_precio">Precio:</label>
+            {{ form.precio }}
+            {% if form.precio.errors %}
+                <div class="errorlist">
+                    {% for error in form.precio.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_imagen">Imagen:</label>
+            {{ form.imagen }}
+            {% if form.imagen.errors %}
+                <div class="errorlist">
+                    {% for error in form.imagen.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_stock">Stock:</label>
+            {{ form.stock }}
+            {% if form.stock.errors %}
+                <div class="errorlist">
+                    {% for error in form.stock.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div>
+            <label for="id_categoria">Categoría:</label>
+            {{ form.categoria }}
+            {% if form.categoria.errors %}
+                <div class="errorlist">
+                    {% for error in form.categoria.errors %}
+                        <p>{{ error }}</p>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <button>GUARDAR</button>
+    </form>
+</body>
+</html>
+{% endblock %}

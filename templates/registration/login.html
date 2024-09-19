@@ -1,0 +1,42 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'css/estilo_base.css' %}">
+</head>
+<body>
+    <div id="modal-register" class="modal-register">
+        <div class="modal-content">
+            
+            <!-- empieza form -->
+            
+                <h2 class="login-h2">Iniciar Sesión</h2>
+                <form id="loginForm" method="post" action="{% url 'login' %}">
+                    {% csrf_token %}
+                    <div class="input-group">
+                        <input type="text" required name="username">
+                        <label>Usuario</label>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" name="password" required>
+                        <label>Contraseña</label>
+                        <!-- <div class="error-message">Contraseña incorrecta.</div> -->
+                    </div>
+                    <button class="enviar-login" type="submit">Iniciar Sesión</button>
+                </form>
+                <div class="signup-link">
+                    <p>¿Primera vez aquí?</p><a href="{% url 'register' %}"> Regístrate.</a>
+                </div>
+            
+            <!-- acaba -->
+        </div>
+    </div>
+    
+</body>
+</html>
+{% endblock %}
